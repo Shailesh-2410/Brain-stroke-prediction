@@ -1,0 +1,55 @@
+body {
+  
+    
+   
+    background-image: url("doc2new.png"); 
+    background-size: 210%;
+  
+}
+
+header {
+    font-family: 'Ultra', serif;
+    padding-top: 40;
+    padding-bottom: 40;
+    /* background-color: #2b580c; */
+    color: #d8ebb5;
+}
+
+.btn {
+    background-color: #323232;
+}
+
+
+input {
+    margin: 0.25rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 35%;
+    background-color: #d8ebb5;
+    justify-content: center;
+    
+    
+}
+
+@media screen and (max-width: 500px) {
+    input {
+        width: 100%;
+    }
+}
+li{
+    display: inline-block;
+
+}
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+label
+{
+    color: whitesmoke;
+}
+.container
+{
+    margin-left: 500px;
+}

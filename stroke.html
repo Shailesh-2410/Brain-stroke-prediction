@@ -1,0 +1,202 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ultra&display=swap" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="/static/brainstroke.css">
+        <style>
+            body
+            {
+                background-color: rgb(77, 77, 158);
+            }
+        </style>
+    
+
+
+    <title>Brain Stroke Prediction</title>
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <br><br>
+    <nav  style="background-color: yellowgreen;" class="
+    navbar navbar-light navbar-expand-lg
+    fixed-top
+    bg-white
+    clean-navbar
+    " >
+
+    <div class="container" >
+      <a class="navbar-brand logo" href="#">Brain Stroke Prediction</a><button data-bs-toggle="collapse"
+        class="navbar-toggler" data-bs-target="#navcol-1">
+        <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/aboutus">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/abstract">Abstract</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">Contact Us</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav><br><br>
+    <header>
+        <h1 style="margin-left: 700px; color: blue;">Brain Stroke</h1>
+    
+    </header>
+
+    <br>
+
+    <div class="container" style="margin-left: 570px;">
+        <form action="/predict" method="post">
+
+          <div class="col-md-6 mb-4 name-age-div">
+            <div class="form-outline good-one">
+              <input type="text" id="pons-age" onkeyup="validateAge()" placeholder="Age" name="age" id="form3Example1n" class="form-control form-control-lg" required/>
+            </div>
+            <div class="good-two">
+              <span id="age-vignesh"></span>
+            </div>
+          </div>
+
+          <div>
+            <div class="col-md-6 mb-4">
+                <select name="maritalstatus" id="pons" required >
+                  <option value="" disabled selected hidden>Marital Status</option>
+                    <option value="married">Yes, Im married</option>
+                    <option value="not married">No, Im single</option>
+                  </select>
+            </div>
+            <div class="col-md-6 mb-4">
+              <select name="Worktype" id="pons" required>
+                <option value="" disabled selected hidden>Work type</option>
+                <option value="children">Im a Children</option>
+                <option value="govtemp">Im a Government employee</option>
+                <option value="privatejob">I do have a private job</option>
+                <option value="selfemp">Im self-employeed</option>
+              </select>
+            </div>
+          </div>
+            <div style="margin-left: 17px;">
+              <select name="Residence" required  >
+                <option value="" disabled selected hidden>Residence type</option>
+                <option value="urban">I live in an urban city</option>
+                <option value="rural">I reside in a rural setting</option>
+              </select>
+            </div>
+         
+          <div class="d-md-flex justify-content-start align-items-center mb-4 py-2" style="margin-left: 17px;"> 
+
+            <h6 class="mb-0 me-4">Gender: </h6>
+
+            <div class="form-check form-check-inline mb-0 me-4">
+              <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="Female" required/>
+              <label class="form-check-label" for="femaleGender">Female</label>
+            </div>
+
+            <div class="form-check form-check-inline mb-0 me-4">
+              <input class="form-check-input" type="radio" name="gender" id="maleGender" value="Male" required/>
+              <label class="form-check-label" for="maleGender">Male</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="col-md-6 mb-4">
+              <div class="form-outline good-one">
+                <input type="text" id="pons-bmi" onkeyup="validateBmi()" placeholder="BMI (Range:15-45)" name="bmi" id="form3Example1x" class="form-control form-control-lg" required/>
+              </div>
+              <div class="good-two">
+                <span id="bmi-vignesh"></span>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <div class="form-outline good-one">
+                <input type="text" id="pons-glu" onkeyup="validateGlu()" placeholder="Glucose level " name="gluclevel" id="form3Example1z" class="form-control form-control-lg" required/>
+              </div>
+              <div class="good-two">
+                <span id="glu-vignesh"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-outlinen mb-4" style="margin-left: 17px;">
+            <select name="Smoke" required>
+              <option value="" disabled selected hidden>Do you smoke?</option>
+              <option value="formerly-smoked">I used to smoke once upon</option>
+              <option value="smoker">Yes, I do smoke frequently</option>
+              <option value="non-smoker">No, I had never smoked before</option>
+              <option value="Unknown">Unknown</option>
+            </select>
+          </div>               
+
+          <div class="form-outlinen mb-4" style="margin-left: 17px;">
+            <select name="Hypertension" required>
+              <option value="" disabled selected hidden>Have you been diagnosed with hypertension?</option>
+              <option value="hypten">Yes, I do have hypertension</option>
+              <option value="nohypten">No, I dont possess</option>
+            </select>
+          </div>
+
+          <div class="form-outlinen mb-4" style="margin-left: 17px;">
+            <select name="Heartdisease" required>
+              <option value="" disabled selected hidden>Do you have any other heart diseases?</option>
+              <option value="heartdis">Yes, I have some heart-related problems</option>
+              <option value="noheartdis">No, I dont have any</option>
+            </select>
+          </div>
+          
+          <div class="d-flex justify-content-end pt-3"><br>
+           <!-- <input type="reset" class="btn" value="Reset" style="margin-left: 25px; background-color: blue;color: white;"> -->
+           <input type="submit" class="btn" value="Predict" onclick="return validateForm()" style="margin-right: 570px; background-color: blue;color: white;">
+          
+          </div>
+            
+
+        </form>
+    </div> 
+
+
+    <h3>{{a}}</h3>
+    <br><br>
+    <script type="text/javascript" src="../static/predict.js"></script>
+         
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html> 
+    
+
+
+    

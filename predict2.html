@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Stroke Prediction</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-image: url("static/bg.png");
+
+            background-color: rgb(76, 76, 194);
+            background-size: 180%;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        li {
+            display: inline-block;
+
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+        }
+
+        h3 {
+            color: burlywood;
+        }
+
+        @charset "utf-8";
+
+        /* CSS Document */
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #FFFFFF;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .social a {
+            padding: 20px;
+            color: #7b7c7c;
+            font-size: 1.1rem;
+        }
+
+        #contact {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .social {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+            box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .social a:hover {
+            color: #000000;
+            transition: all ease 0.3s;
+        }
+
+        .contact-box {
+            background-color: #434445;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 30px;
+            box-shadow: 2px 0px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .c-heading h1 {
+            font-family: Roboto;
+            color: #e7eef3;
+            font-size: 2.5rem;
+            font-weight: lighter;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .c-heading p {
+            font-family: Roboto;
+            color: #cecece;
+            font-size: 0.8rem;
+            font-weight: lighter;
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .c-inputs {
+            margin-top: 150px;
+            margin: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .c-inputs input {
+            width: 250px;
+            height: 45px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(251, 251, 251, 0.1);
+            outline: none;
+            margin: 10px 0px;
+            padding: 10px;
+            box-sizing: border-box;
+            color: #f4f4f4;
+            display: flex;
+        }
+
+        .c-inputs textarea {
+            width: 250px !important;
+            height: 200px !important;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid rgba(82, 82, 82, 1);
+            color: #f4f4f4;
+            padding: 10px;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+        }
+
+        .c-inputs button {
+            width: 200px;
+            height: 40px;
+            background-color: #FFFFFF;
+            border: none;
+            outline: none;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+        }
+
+        .c-inputs input:focus {
+            border-bottom: 1px solid rgba(252, 252, 252, 1.00);
+            transition: all ease 0.5s;
+        }
+
+        .c-inputs textarea:focus {
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 1.00);
+            transition: all ease 0.5s;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .c-inputs button:active {
+            transform: scale(1.02);
+        }
+
+        .map {
+            filter: grayscale(0.2);
+            box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.2);
+            border: 2px solid #FFFFFF;
+        }
+
+        @media(max-width:1100px) {
+            .map {
+                display: none;
+            }
+        }
+
+        @media(max-width:450px) {
+            .social {
+                display: none;
+            }
+
+            .contact-box {
+                width: 100%;
+                height: 100vh;
+                box-sizing: border-box;
+            }
+
+            #contact {
+                position: static;
+                transform: translate(0, 0);
+                width: 100%;
+                height: 100vh;
+                box-sizing: border-box;
+            }
+
+            .c-heading h1 {
+                font-size: 2.2rem;
+                text-align: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav style="background-color: rgb(102, 122, 248); padding: 10px;box-shadow:5px 10px white;">
+        <ul>
+            <li><a href="#">Brain Stroke Prediction</a></li>
+            <li><a href="/stroke" style="margin-left: 1000px;">Prediction</a></li>
+            <li><a href="/" style="margin-left: 20px;">Home</a></li>
+        </ul>
+    </nav>
+    <br>
+    <h3 style="margin-left: 340px; font-size: 45px; color: rgb(0, 0, 0);"><strong>{{ prediction_text }}</strong></h3>
+    <h2 style="margin-left: 380px; font-size: 45px; color: rgb(236, 163, 27);">The Confidence of the Model is 83.95% </h2>
+    <img src="/static/assets/img/brain (1).jpg" width="480px" height="440px" controls style="margin-left: 500px;">
+
+    <br><br><br><br><br>
+    <!-- <iframe src="[your unique google URL] " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     -->
+    <h4 style="margin-left: 540px; font-size: 45px; color: rgb(0, 0, 0);">Connect Nearby Hospitals</h4>
+    <center>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.4468017757845!2d77.56681777454905!
+    3d13.134192811293785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae18a5c54ece35%3A0x49c4c47a68a60b9c!
+    2sBMS%20Institute%20of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1715340442446!5m2!1sen!2sin" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </center>
+    <!-- <div class="c-inputs">
+        <script>
+            function initMap() {
+                var bangalore = { lat: 13.1265, lng: 77.5677}; // Bangalore location
+    
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: bangalore, // Set Bangalore as default center
+                    zoom: 14
+                });
+    
+                var service = new google.maps.places.PlacesService(map);
+    
+                service.nearbySearch({
+                    location: bangalore, // Search near Bangalore
+                    radius: 5000,
+                    type: ['hospital']
+                }, callback);
+    
+                function callback(results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        for (var i = 0; i < results.length; i++) {
+                            createMarker(results[i]);
+                        }
+                    }
+                }
+    
+                function createMarker(place) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+                }
+            }
+        </script>
+        <script>
+            initMap();
+        </script>
+    
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8577501935043!2d77.59456271482063!3d12.97159871488951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1649865820473!5m2!1sen!2sus"
+                width="1450px" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
+        
+    </div>
+         -->
+</body>
+
+</html>
